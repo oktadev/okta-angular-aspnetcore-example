@@ -19,6 +19,7 @@ To install this example application, run the following commands:
 
 ```bash
 git clone https://github.com/oktadeveloper/okta-angular-aspnetcore-example.git
+cd okta-angular-aspnetcore-example
 ```
 
 This will download a copy of the project.
@@ -48,27 +49,36 @@ services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 #### Client configuration
 
-Set the `issuer` and copy the `clientId` of the Okta application into `ClientApp/router.js`.
+Set the `issuer` and copy the `clientId` of the Okta application into the `app.module.ts` file:
 
 ```javascript
-Vue.use(Auth, {
-    // Replace this with your Okta domain:
-  issuer: 'https://{yourOktaDomain}.com/oauth2/default',
-  // Replace this with the client ID of the Okta app you just created:
-  client_id: '{clientId}',
-  redirect_uri: 'http://localhost:5000/implicit/callback',
+const config = {
+  issuer: 'https://{yourOktaDomain}.oktapreview.com/oauth2/default',
+  redirectUri: 'http://localhost:4200/implicit/callback',
+  clientId: '{clientId}',
   scope: 'openid profile email'
-})
+};
 ```
 
 ### Start the app
 
-To install all of the dependencies and start the app, run:
+To install all of the dependencies and start the ASP.NET Core 2.0 Web API, run:
+```
+cd Backend/Backend
+dotnet run
+```
+
+To install all of the dependencies and start the Anguar app, run:
 
 ```bash
+cd Frontend/JoggingDiary
 npm install
+npm start
+```
 
-dotnet run
+Note that in the `Frontend/JoggingDiary/src/app/workout.service.ts` you need to set the port of the API access point:
+```javascript
+private accessPointUrl: string = 'http://localhost:{MyPort}/api/workouts'
 ```
 
 ## Links
@@ -76,7 +86,6 @@ dotnet run
 This example uses the following libraries provided by Okta:
 
 * [Okta Angular SDK](https://www.npmjs.com/package/@okta/okta-angular)
-* [Okta .NET SDK](https://github.com/okta/okta-sdk-dotnet)
 
 ## Help
 
