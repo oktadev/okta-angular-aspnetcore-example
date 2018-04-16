@@ -11,7 +11,6 @@ using Microsoft.Extensions.Options;
 using Microsoft.EntityFrameworkCore;
 using Backend.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Okta.Core.Clients;
 using Newtonsoft.Json.Serialization;
 
 namespace Backend
