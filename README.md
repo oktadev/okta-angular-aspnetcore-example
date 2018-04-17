@@ -93,4 +93,4 @@ Please post any questions as comments on the [blog post](URL???), or visit the [
 
 ## License
 
-MIT, see [LICENSE](LICENSE).
+Apache 2.0, see [LICENSE](LICENSE).
