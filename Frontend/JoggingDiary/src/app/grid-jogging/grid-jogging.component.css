@@ -1,0 +1,12 @@
+table {
+    margin-top: 1.5em;
+}
+
+tbody td {
+    text-align: right;
+}
+
+.link {
+    text-decoration: underline;
+    cursor: pointer;
+}

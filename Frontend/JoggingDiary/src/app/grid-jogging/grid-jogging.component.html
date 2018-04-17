@@ -1,0 +1,26 @@
+<h2>My results</h2>
+
+<button type="button" class="btn btn-primary" (click)="newRecord()">New</button>
+<table class="table">
+    <thead class="thead-light">
+        <tr>
+            <th>Date</th>
+            <th>Distance in meters</th>
+            <th>Time</th>
+            <th>Average speed</th>
+            <th>Options</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let joggingInfo of joggingData">
+            <td>{{ joggingInfo.date }}</td>
+            <td>{{ joggingInfo.distanceInMeters | number: '1.2-2' }}</td>
+            <td>{{ joggingInfo.timeInSeconds / 60 |number: '1.0-0' }}:{{ joggingInfo.timeInSeconds % 60 |number: '2.0-0' }}</td>
+            <td>{{ (joggingInfo.distanceInMeters / joggingInfo.timeInSeconds) * 3.6 | number:'1.2-2' }}</td>
+            <td>
+                <a (click)="editRecord(joggingInfo)" class="link">Edit</a>
+                <a (click)="deleteRecord(joggingInfo)" class="link">Delete</a>
+            </td>
+        </tr>
+    </tbody>
+</table>
