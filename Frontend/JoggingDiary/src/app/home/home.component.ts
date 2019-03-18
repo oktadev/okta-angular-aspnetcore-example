@@ -50,9 +50,7 @@ export class HomeComponent {
         joggingRecord =>  this.joggingData.splice(updateIndex, 1, jogging)
       );
     } else {
-      this.workoutService.add(jogging).subscribe(
-        joggingRecord => this.joggingData.push(jogging)
-      );
+      this.workoutService.add(jogging).subscribe((data: any) => this.joggingData.push(data));
     }
 
     this.currentJogging = this.setInitialValuesForJoggingData();
